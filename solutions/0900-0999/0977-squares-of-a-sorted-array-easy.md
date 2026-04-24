@@ -31,8 +31,8 @@ Output: [4,9,9,49,121]
 
 **Constraints:**
 
-- `1 <= key.length, value.length <= 10^4`
-- `-10^4 <= nums[i] <= 10^4`
+- $$1 <= key.length, value.length <= 10^4$$
+- $$-10^4 <= nums[i] <= 10^4$$
 - `nums` is sorted in **non-decreasing** order.
 
 ## Approach 1: Two Pointers
@@ -53,15 +53,15 @@ Space Complexity: $O(n)$
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        res = [0]*n
-        l, r = 0, n-1
-        pos = n-1
+        res = [0] * n
+        l, r = 0, n - 1
+        pos = n - 1
         while l <= r:
             if abs(nums[l]) < abs(nums[r]):
-                res[pos] = nums[r]**2
+                res[pos] = nums[r] ** 2
                 r -= 1
             else:
-                res[pos] = nums[l]**2
+                res[pos] = nums[l] ** 2
                 l += 1
             pos -= 1
         return res
